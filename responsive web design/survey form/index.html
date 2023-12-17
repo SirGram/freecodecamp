@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+    <h1 id="title">Favourite Bear Survey</h1> <hr>
+    <p id="description">
+      The Bear Welfare Association invites you to complete a survey about your own well-being
+    </p>
+
+    <form id="survey-form">
+
+      <div class="form-group">
+        <label for="name" id="name-label">Name</label>
+        <input id="name" required type="text" placeholder="Grizzly McFluffington" />
+      </div>
+      <div  class="form-group">
+        <label for="email" id="email-label">Email</label>
+        <input
+          id="email"
+          required
+          type="email"
+          placeholder="grizzly@example.com"
+        />
+      </div>
+      <div  class="form-group">
+        <label for="number" id="number-label">Number</label>
+        <input
+          id="number"
+          required
+          type="number"
+          min="0"
+          max="999999999"
+          placeholder="655843228"
+        />
+      </div>
+      <div class="form-group">
+        
+        <select id="dropdown">
+          <option disabled selected value>Region</option>
+          <option value="option1">Eu</option>
+          <option value="option2">America</option>
+          <option value="option3">Asia</option>          
+          <option value="option4">Oceania</option>    
+          <option value="option5">Antarctica</option>
+        </select>
+      </div>
+
+      <div  class="form-group">
+        <h3>Personal Background</h3>
+        <div>
+          <h4>Ethnicity</h4>
+          <input type="radio" name="ethnicity" value="wb"/>White Bear 
+          <input type="radio" name="ethnicity" value="bb"/>Black Bear 
+          <input type="radio" name="ethnicity" value="pb"/>Panda Bear 
+        </div>
+        <div>
+          <h4>Gender</h4>
+          <input type="radio" name="gender" value="m"/>Male
+          <input type="radio" name="gender" value="f"/>Female
+        </div>
+      </div>
+
+      <div  class="form-group">
+        <h3>Preferences</h3>
+        <div>
+          <h4>Food</h4>
+          <input type="checkbox" name="food" value="1" />Berries
+          <input type="checkbox" name="food" value="2" />Fish
+          <input type="checkbox" name="food" value="3" />Bamboo
+        </div>
+
+        <div >
+          <h4>Activity</h4>
+          <input type="checkbox" name="activity" value="1" />Hiking
+          <input type="checkbox" name="activity" value="2" />Loafing
+          <input type="checkbox" name="activity" value="3" />Eating
+          <input type="checkbox" name="activity" value="4" />Fighting          
+          <input type="checkbox" name="activity" value="5" />Climbing
+        </div>
+      </div>
+      <h4>General happiness</h4>
+<input type="range" min="0" max="10" value="5" >
+      <div  class="form-group">
+        <h3>Feedback</h3>
+        <textarea name="comment" id="comment">
+Add aditional information if needed</textarea
+        >
+      </div>
+
+      <div>
+        <button id="submit">Enter</button>
+      </div>
+    </form></div>
+  </body>
+</html>
