@@ -7,47 +7,71 @@
     <title>Document</title>
   </head>
   <body>
-    <nav id="nav-bar">
-      <header><h1> PyPathSearch Docs</h1></header>
+    <nav id="navbar">
+      <header><h1>PyPathSearch Docs</h1></header>
       <ul>
         <li>
-            <a href="#Introduction" class="nav-link">Introduction</a></li>
+          <a href="#Introduction" class="nav-link">Introduction</a>
+        </li>
         <li>
-            <a href="#Algorithm Overview" class="nav-link">Algorithm Overview</a></li>
+          <a href="#Algorithm_Overview" class="nav-link">Algorithm Overview</a>
+        </li>
         <li>
-            <a href="#Code Implementation" class="nav-link">Code Implementation</a></li>
+          <a href="#Code_Implementation" class="nav-link"
+            >Code Implementation</a
+          >
+          <ul>
+            <li><a href="#part1" class="nav-secondary-link">Part1</a></li>
+            <li><a href="#part2" class="nav-secondary-link">Part2</a></li>
+            <li><a href="#part3" class="nav-secondary-link">Part3</a></li>
+            <li><a href="#part4" class="nav-secondary-link">Part4</a></li>
+            <li><a href="#part5" class="nav-secondary-link">Part5</a></li>
+            <li><a href="#part6" class="nav-secondary-link">Part6</a></li>
+            <li><a href="#part7" class="nav-secondary-link">Part7</a></li>
+            <li><a href="#part8" class="nav-secondary-link">Part8</a></li>
+          </ul>
+        </li>
         <li>
-            <a href="#Example Usage" class="nav-link">Example Usage</a></li>
+          <a href="#Example_Usage" class="nav-link">Example Usage</a>
+        </li>
         <li>
-            <a href="#Troubleshooting" class="nav-link">Troubleshooting</a></li>
+          <a href="#Troubleshooting" class="nav-link">Troubleshooting</a>
+        </li>
       </ul>
     </nav>
-    <main class="main-doc">
+    <main id="main-doc">
       <section class="main-section" id="Introduction">
-        <header><h2> Introduction</h2></header>
+        <header><h2>Introduction</h2></header>
         <article>
-          Welcome to PyPathSearch, a simple and efficient pathfinding algorithm
-          implemented in Python. PyPathSearch is designed to find the shortest
-          path between two points on a grid, making it suitable for various
-          applications, including game development and robotics.
+          <p>
+            Welcome to PyPathSearch, a simple and efficient pathfinding
+            algorithm implemented in Python.
+          </p>
+          <p>
+            PyPathSearch is designed to find the shortest path between two
+            points on a grid, making it suitable for various applications,
+            including game development and robotics.
+          </p>
         </article>
       </section>
-      <section class="main-section" id="Algorithm Overview">
+      <section class="main-section" id="Algorithm_Overview">
         <header><h2>Algorithm Overview</h2></header>
         <article>
-          PyPathSearch utilizes the A* (A-star) algorithm, a popular choice for
-          grid-based pathfinding. A* combines the benefits of both Dijkstra's
-          algorithm and greedy best-first search by considering both the cost to
-          reach a node and the estimated cost to the goal.
+          <p>
+            PyPathSearch utilizes the A* (A-star) algorithm, a popular choice
+            for grid-based pathfinding.
+          </p>
+         <ul><li>Dijkstra's algorithm</li><li>Best-first search </li><li>Cost consideration to reach a node</li></ul>
         </article>
       </section>
-      <section class="main-section" id="Code Implementation">
-        <header><h2>Example Usage</h2></header>
-        <header>Code Implementation</h2></header>
+      <section class="main-section" id="Code_Implementation">
+        <header><h2>Code Implementation</h2></header>
         <article>
-          The PyPathSearch algorithm is implemented in Python, making it easy to
-          integrate into your projects. Below is a simplified version of the
-          PyPathSearch code:
+          <p>
+            The PyPathSearch algorithm is implemented in Python, making it easy
+            to integrate into your projects. Below is a simplified version of
+            the PyPathSearch code:
+          </p>
         </article>
         <code
           >def py_path_search(start, goal, grid): open_set = [(0, start)]
@@ -61,54 +85,102 @@
           open_set.append((neighbor.heuristic_cost, neighbor)) return None # No
           path found
         </code>
-        <section>
-          <header>Part 1: Initialization and Setup</h2></header>
+        <section class="secondary-section" id="part1">
+          <header><h3>Part 1: Initialization and Setup</h3></header>
+          <article>
+            <p>
+              This part initializes the open set with the starting position and
+              sets up the closed set to keep track of visited nodes.
+            </p>
+          </article>
           <code
             >def py_path_search(start, goal, grid): open_set = [(0, start)]
             closed_set = set()
           </code>
         </section>
-        <section>
-          <header>Part 2: Main Loop</header>
+        <section class="secondary-section" id="part2">
+          <header><h3>Part 2: Main Loop</h3></header>
+          <article>
+            <p>
+              Here, the algorithm enters the main loop, dequeuing the node with
+              the lowest cost from the open set.
+            </p>
+          </article>
           <code> while open_set: cost, current = open_set.pop(0) </code>
         </section>
-        <section>
-          <header>Part 3: Goal Check</header>
-          <code>
-            if current == goal: return reconstruct_path(start, goal)
-          </code>
+        <section class="secondary-section" id="part3">
+          <header><h3>Part 3: Goal Check</h3></header>
+          <article>
+            <p>
+              This section checks if the current node is the goal. If true, it
+              returns the reconstructed path from the start to the goal.
+            </p>
+          </article>
+          <code>if current == goal: return reconstruct_path(start, goal) </code>
         </section>
-        <section>
-          <header>Part 4: Mark Current Node as Visited</header>
+        <section class="secondary-section" id="part4">
+          <header><h3>Part 4: Mark Current Node as Visited</h3></header>
+          <article>
+            <p>
+              The current node is marked as visited by adding it to the closed
+              set.
+            </p>
+          </article>
           <code> closed_set.add(current) </code>
         </section>
-        <section>
-          <header>Part 5: Explore Neighbors</header>
-          <code>
-            for neighbor in get_neighbors(current, grid): if neighbor in
+        <section class="secondary-section" id="part5">
+          <header><h3>Part 5: Explore Neighbors</h3></header>
+          <article>
+            <p>
+              This part iterates through the neighbors of the current node,
+              skipping visited or blocked nodes.
+            </p>
+          </article>
+          <code
+            >for neighbor in get_neighbors(current, grid): if neighbor in
             closed_set or not neighbor.is_open: continue
           </code>
         </section>
-        <section>
-          <header>Part 6: Calculate Tentative Cost</header>
+        <section class="secondary-section" id="part6">
+          <header><h3>Part 6: Calculate Tentative Cost</h3></header>
+          <article>
+            <p>
+              Calculates the tentative cost to reach the neighbor from the
+              current node.
+            </p>
+          </article>
           <code> tentative_cost = cost + distance(current, neighbor) </code>
         </section>
-        <section>
-          <header>Part 7: Update Node and Add to Open Set</header>
-          <code>
-            if neighbor not in open_set or tentative_cost < get_cost(open_set,
+        <section class="secondary-section" id="part7">
+          <header><h3>Part 7: Update Node and Add to Open Set</h3></header>
+          <article>
+            <p>
+              Updates the neighbor's cost and heuristic, then adds it to the
+              open set if not present or if the tentative cost is lower.
+            </p>
+          </article>
+          <code
+            >if neighbor not in open_set or tentative_cost < get_cost(open_set,
             neighbor): update_node(neighbor, cost + distance(current, neighbor),
             goal) open_set.append((neighbor.heuristic_cost, neighbor))
           </code>
         </section>
-        <section>
-          <header>Part 8: Handle Path Not Found</header>
+        <section class="secondary-section" id="part8">
+          <article>
+            <p>
+              If the open set becomes empty and the goal hasn't been reached,
+              the function returns None to indicate that no path was found.
+            </p>
+          </article>
+          <header><h3>Part 8: Handle Path Not Found</h3></header>
           <code> return None # No path found </code>
         </section>
       </section>
-      <section class="main-section" id="Example Usage">
+      <section class="main-section" id="Example_Usage">
         <header><h2>Example Usage</h2></header>
-        <article>To use PyPathSearch, follow these simple steps:</article>
+        <article>
+          <p>To use PyPathSearch, follow these simple steps:</p>
+        </article>
         <code
           >start = (0, 0) goal = (4, 4) grid = create_grid() path =
           py_path_search(start, goal, grid) if path: print("Shortest path
@@ -119,7 +191,9 @@
       <section class="main-section" id="Troubleshooting">
         <header><h2>Troubleshooting</h2></header>
         <article>
-          If you encounter issues with PyPathSearch, consider the following:
+          <p>
+            If you encounter issues with PyPathSearch, consider the following:
+          </p>
           <ul>
             <li>
               Ensure the grid is correctly defined with open and blocked cells.
@@ -132,8 +206,10 @@
               appropriate for your application.
             </li>
           </ul>
-          For additional assistance, please refer to the PyPathSearch community
-          or consult the documentation.
+          <p>
+            For additional assistance, please refer to the PyPathSearch
+            community or consult the documentation.
+          </p>
         </article>
       </section>
     </main>
