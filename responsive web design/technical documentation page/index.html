@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav id="nav-bar">
+      <header><h1> PyPathSearch Docs</h1></header>
+      <ul>
+        <li>
+            <a href="#Introduction" class="nav-link">Introduction</a></li>
+        <li>
+            <a href="#Algorithm Overview" class="nav-link">Algorithm Overview</a></li>
+        <li>
+            <a href="#Code Implementation" class="nav-link">Code Implementation</a></li>
+        <li>
+            <a href="#Example Usage" class="nav-link">Example Usage</a></li>
+        <li>
+            <a href="#Troubleshooting" class="nav-link">Troubleshooting</a></li>
+      </ul>
+    </nav>
+    <main class="main-doc">
+      <section class="main-section" id="Introduction">
+        <header><h2> Introduction</h2></header>
+        <article>
+          Welcome to PyPathSearch, a simple and efficient pathfinding algorithm
+          implemented in Python. PyPathSearch is designed to find the shortest
+          path between two points on a grid, making it suitable for various
+          applications, including game development and robotics.
+        </article>
+      </section>
+      <section class="main-section" id="Algorithm Overview">
+        <header><h2>Algorithm Overview</h2></header>
+        <article>
+          PyPathSearch utilizes the A* (A-star) algorithm, a popular choice for
+          grid-based pathfinding. A* combines the benefits of both Dijkstra's
+          algorithm and greedy best-first search by considering both the cost to
+          reach a node and the estimated cost to the goal.
+        </article>
+      </section>
+      <section class="main-section" id="Code Implementation">
+        <header><h2>Example Usage</h2></header>
+        <header>Code Implementation</h2></header>
+        <article>
+          The PyPathSearch algorithm is implemented in Python, making it easy to
+          integrate into your projects. Below is a simplified version of the
+          PyPathSearch code:
+        </article>
+        <code
+          >def py_path_search(start, goal, grid): open_set = [(0, start)]
+          closed_set = set() while open_set: cost, current = open_set.pop(0) if
+          current == goal: return reconstruct_path(start, goal)
+          closed_set.add(current) for neighbor in get_neighbors(current, grid):
+          if neighbor in closed_set or not neighbor.is_open: continue
+          tentative_cost = cost + distance(current, neighbor) if neighbor not in
+          open_set or tentative_cost < get_cost(open_set, neighbor):
+          update_node(neighbor, cost + distance(current, neighbor), goal)
+          open_set.append((neighbor.heuristic_cost, neighbor)) return None # No
+          path found
+        </code>
+        <section>
+          <header>Part 1: Initialization and Setup</h2></header>
+          <code
+            >def py_path_search(start, goal, grid): open_set = [(0, start)]
+            closed_set = set()
+          </code>
+        </section>
+        <section>
+          <header>Part 2: Main Loop</header>
+          <code> while open_set: cost, current = open_set.pop(0) </code>
+        </section>
+        <section>
+          <header>Part 3: Goal Check</header>
+          <code>
+            if current == goal: return reconstruct_path(start, goal)
+          </code>
+        </section>
+        <section>
+          <header>Part 4: Mark Current Node as Visited</header>
+          <code> closed_set.add(current) </code>
+        </section>
+        <section>
+          <header>Part 5: Explore Neighbors</header>
+          <code>
+            for neighbor in get_neighbors(current, grid): if neighbor in
+            closed_set or not neighbor.is_open: continue
+          </code>
+        </section>
+        <section>
+          <header>Part 6: Calculate Tentative Cost</header>
+          <code> tentative_cost = cost + distance(current, neighbor) </code>
+        </section>
+        <section>
+          <header>Part 7: Update Node and Add to Open Set</header>
+          <code>
+            if neighbor not in open_set or tentative_cost < get_cost(open_set,
+            neighbor): update_node(neighbor, cost + distance(current, neighbor),
+            goal) open_set.append((neighbor.heuristic_cost, neighbor))
+          </code>
+        </section>
+        <section>
+          <header>Part 8: Handle Path Not Found</header>
+          <code> return None # No path found </code>
+        </section>
+      </section>
+      <section class="main-section" id="Example Usage">
+        <header><h2>Example Usage</h2></header>
+        <article>To use PyPathSearch, follow these simple steps:</article>
+        <code
+          >start = (0, 0) goal = (4, 4) grid = create_grid() path =
+          py_path_search(start, goal, grid) if path: print("Shortest path
+          found:", path) else: print("No path found.")
+        </code>
+      </section>
+
+      <section class="main-section" id="Troubleshooting">
+        <header><h2>Troubleshooting</h2></header>
+        <article>
+          If you encounter issues with PyPathSearch, consider the following:
+          <ul>
+            <li>
+              Ensure the grid is correctly defined with open and blocked cells.
+            </li>
+            <li>
+              Check that the start and goal positions are valid within the grid.
+            </li>
+            <li>
+              Verify that the heuristic function and distance calculation are
+              appropriate for your application.
+            </li>
+          </ul>
+          For additional assistance, please refer to the PyPathSearch community
+          or consult the documentation.
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
