@@ -13,21 +13,64 @@
       </div>
       <nav id="nav-bar">
         <ul>
+          <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
           <li>
             <a class="nav-link" href="#presentation">Presentation</a>
           </li>
           <li>
-            <a class="nav-link" href="warranties">Warranty</a>
+            <a class="nav-link" href="#warranties">Warranty</a>
           </li>
           <li><a class="nav-link" href="#workout">Workout</a></li>
           <li>
-            <a class="nav-link" href="#video-container">Products</a>
+            <a class="nav-link" href="#products">Products</a>
           </li>
-          <li><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li>
+            <a class="nav-link" href="#subscription">Subscription</a>
+          </li>
         </ul>
       </nav>
     </header>
     <div class="section-container">
+      <section id="testimonials">
+        <div class="slider-container">
+          <button class="slide-button" onclick="plusDivs(+1)">&#10095;</button>
+
+          <div class="testimony">
+            <h3>Anna Smith</h3>
+            <article>
+              "The kettlebells from KettleHouse have transformed my workout
+              routine. The ergonomic design and variety of weights make them
+              perfect for anyone, from beginners to fitness enthusiasts. I've
+              seen significant improvements in my strength and endurance. Highly
+              recommended!"
+            </article>
+          </div>
+
+          <!-- Testimony 2 -->
+          <div class="testimony">
+            <h3>John Carter</h3>
+            <article>
+              "As a personal trainer, I always recommend KettleHouse kettlebells
+              to my clients. The quality and craftsmanship are unmatched. The
+              unique off-centered weight distribution provides an excellent
+              challenge for core engagement. My clients love the results they
+              see!"
+            </article>
+          </div>
+
+          <!-- Testimony 3 -->
+          <div class="testimony">
+            <h3>Linda Rodriguez</h3>
+            <article>
+              "I've tried various fitness equipment, but KettleHouse kettlebells
+              stand out. The durable construction and comfortable grip make my
+              workouts enjoyable. Plus, the fast delivery ensured I could start
+              my fitness journey without delay. Thank you for a fantastic
+              product!"
+            </article>
+          </div>
+        </div>
+      </section>
       <section id="presentation">
         <h1>Finely Machined Kettlebell Pieces</h1>
         <article>
@@ -56,12 +99,15 @@
         <div class="warranty">
           <div class="warranty-icon">
             <img src="src/w1.png" alt="tick" />
-            
           </div>
-          <div class="desc"><h2>5 year warrant</h2><p>
-            Provided by the company that produced the product, this warranty
-            outlines the terms and conditions under which they will repair or
-            replace a faulty item within 5 years. </p></div>
+          <div class="desc">
+            <h2>5 year warrant</h2>
+            <p>
+              Provided by the company that produced the product, this warranty
+              outlines the terms and conditions under which they will repair or
+              replace a faulty item within 5 years.
+            </p>
+          </div>
         </div>
         <div class="warranty">
           <div class="warranty-icon"><img src="src/w2.png" alt="cash" /></div>
@@ -69,19 +115,19 @@
             <h2>Trial Week</h2>
             <p>
               If you are not satisfied with the product during the first week,
-              you can resend it back for free
+              you can resend it back for free.
             </p>
           </div>
         </div>
         <div class="warranty">
           <div class="warranty-icon"><img src="src/w3.png" alt="van" /></div>
           <div class="desc">
-            <h2>Fastest Delivery</h2>
-            <p>24 to 72h shipping</p>
+            <h2>Fast Delivery</h2>
+            <p>24 to 72h shipping.</p>
           </div>
         </div>
       </section>
-      <section id="Workout">
+      <section id="workout">
         <iframe
           src="https://www.youtube.com/embed/W9DICM0We3U"
           id="video"
@@ -89,26 +135,64 @@
         ></iframe>
       </section>
       <section id="products">
-        <img src="src/image2.jpg" alt="products">
-        <div class="buttons-up"><button>SELECT</button>
-        <button>SELECT</button>
-        <button>SELECT</button>
-        <button>SELECT</button>
-        <button>SELECT</button>
-        <button>SELECT</button></div> <div class="buttons-down"><button>SELECT</button>
+        <div class="product-container">
+          <img src="src/image2.jpg" alt="products" />
+          <div class="buttons-up">
             <button>SELECT</button>
             <button>SELECT</button>
             <button>SELECT</button>
-            <button>SELECT</button></div>
+            <button>SELECT</button>
+            <button>SELECT</button>
+            <button>SELECT</button>
+          </div>
+          <div class="buttons-down">
+            <button>SELECT</button>
+            <button>SELECT</button>
+            <button>SELECT</button>
+            <button>SELECT</button>
+            <button>SELECT</button>
+          </div>
+        </div>
       </section>
-      <section id="testimonials"></section>
+
       <section id="subscription">
-        <form action="https://www.freecodecamp.com/email-submit" id="form">
-          <input type="email" id="email" placeholder="email" name="email" />
-          <input type="submit" value="" id="submit" />
+        <h2>Subscribe to the Newsletter</h2>
+        <form action="https://www.freecodecamp.com/email-submit" id="form" >
+          <input type="email" id="email" placeholder="enter your email address" name="email"  />
+          <input type="submit"  id="submit" value="Subscribe NOW"/>
         </form>
       </section>
     </div>
-    <footer></footer>
+    
+    <footer>
+
+      <ul><li><a href="#"> Terms</a></li>
+      <li><a href="#"> Contact</a></li>
+      <li><a href="#"> Privacy</a></li></ul>
+      <span>Copyright 2023 KettleHouse </span>
+    </footer>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+
+      function plusDivs(n) {
+        showDivs((slideIndex += n));
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("testimony");
+        if (n > x.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = x.length;
+        }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+      }
+    </script>
   </body>
 </html>
