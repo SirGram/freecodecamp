@@ -4,61 +4,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   </head>
   <body>
     <nav id="navbar">
-        <h1>Portfolio</h1>
+      <h1>Craftfolio</h1>
       <ul class="nav-link">
-        <li><a href=""></a>About</li>
-        <li><a href=""></a>Projects</li>
-        <li><a href=""></a>Contact</li>
+        <li><a href="#welcome-section">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <section id="welcome-section"></section>
-      <h1>
-        Hello, my name is Joe, I like wood. Nice to meet ya.
-      </h1>
-      <img src="src/image.jpg" alt="">
-      <section id="projects">
-        <h1>Projects</h1>
-        <div id="project-container">
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p1.jpg" alt="">
+    <section id="welcome-section">
+        <h1>Hi there, my name is Joe.</h1>
+        
+      <div class="line-bottom"></div><p> I like <em>wood</em>. Nice to meet ya.</p>
+      
+    </section>
+    <div class="line-top"></div>
+    <section id="projects">  
+      <h1>These are some of my children</h1>
+      <div class="line-bottom"></div>
+      <div id="project-container">
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p1.jpg" alt="" />
             <div class="project-information">Rocking Horse</div>
-
-        </a></div>
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p2.jpg" alt="">
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p2.jpg" alt="" />
 
             <div class="project-information">Machined Rings</div>
-        </a></div>
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p3.jpg" alt="">
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p3.jpg" alt="" />
 
             <div class="project-information">Wheeled Car</div>
-        </a></div>
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p4.jpg" alt="">
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p4.jpg" alt="" />
 
             <div class="project-information">Doll House</div>
-        </a></div>
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p5.jpg" alt="">
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p5.jpg" alt="" />
 
             <div class="project-information">Telescope Main Frame</div>
-        </a></div>
-        <div class="project-tile"><a href="" class="project-link">
-            <img src="src/p6.jpg" alt="">
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p6.jpg" alt="" />
 
             <div class="project-information">Jigsaw Puzzle</div>
-        </a></div></div>
-      </section>
-      <section id="contact">
-        <h1>Let's machine something great together!</h1>
-        <img src="src/background.jpg" alt="">
-      </section>
-    <footer>
-        <p><a href=""></a>Some footer...</p>
-    </footer>
+          </a>
+        </div>  <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p7.jpg" alt="" />
+
+            <div class="project-information">Nightstand</div>
+          </a>
+        </div>
+        <div class="project-tile">
+          <a href="" class="project-link">
+            <img src="src/p8.jpg" alt="" />
+
+            <div class="project-information">Checkers</div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div class="line-top"></div>
+    <section id="contact">
+      <form action="">
+        
+      <h2>Let's machine something great together!</h2>
+      <div class="line-bottom"></div>
+        <input type="text" id="name" required placeholder="Name">
+       
+        <input type="email" id="email" required placeholder="Email">
+       
+          <input type="text" id="company-name" required placeholder="Company Name">
+         
+            <input type="text" id="message" placeholder="Message">
+            <button type="submit">Send</button>
+        
+      </form>
+    </section>
+    <div id="sidebar">
+      <p>  <a id="profile-link" target="_blank"><i class="fab fa-facebook"></i> <span class="social-text">Facebook</span></a></p>
+      <p>  <a id="profile-link-instagram" href="#" target="_blank"><i class="fab fa-instagram"></i> <span class="social-text">Instagram</span></a></p>
+      <p>  <a id="profile-link-twitter" href="#" target="_blank"><i class="fab fa-twitter"></i> <span class="social-text">Twitter</span></a></p>
+    </div>
+    <footer>  <p>&copy; Copyright 2023 <a href="https://github.com/SirGram" target="_blank" >SirGram</a></p>    
+        
+    </a></footer>
   </body>
 </html>
