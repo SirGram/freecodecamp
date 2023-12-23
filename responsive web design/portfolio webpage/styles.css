@@ -1,0 +1,37 @@
+
+html{/* 
+    background-image:url(src/antique-hardwood-table-made-from-tree-trunk-generated-by-ai_188544-40888.jpg); */
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+#navbar{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-size: x-large;
+    text-shadow: 0px 0px 10px black;
+}
+ul{
+    display: flex;
+    gap: 2rem;
+}
+li{
+    list-style-type: none;
+}
+
+#project-container{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 400px);
+    gap: 1rem 2rem;
+}
+img{
+    width: 100%;
+}
