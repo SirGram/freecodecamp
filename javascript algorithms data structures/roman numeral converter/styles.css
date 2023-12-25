@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: ghostwhite;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+button{
+    margin: 1rem;
+    padding: 1rem;
+    background-color: rgb(194, 146, 239);
+}
+input{
+    width: fit-content;
+}
