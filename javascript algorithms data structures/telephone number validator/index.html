@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <title>Telephone Number Validator</title>
+  </head>
+  <body>
+    <h1>US Phone DataBase</h1>
+    <input type="text" id="user-input" />
+    <div id="buttons">
+    <button id="check-btn">Check</button>
+    <button id="clear-btn">Clear</button></div>
+    <div id="results-div"></div>
+
+    <script>
+      var phoneRegexArray = [
+        /^\d{1} \d{3}-\d{3}-\d{4}$/,
+        /^1 \(\d{3}\) \d{3}-\d{4}$/,
+        /^1\(\d{3}\)\d{3}-\d{4}$/,
+        /^\d{1} \d{3} \d{3} \d{4}$/,
+        /^\d{10}$/,
+        /^\d{3}-\d{3}-\d{4}$/,
+        /^\(\d{3}\)\d{3}-\d{4}$/,
+      ];
+
+      function isValid(number) {
+        return phoneRegexArray.some((phoneRegex) => {
+          console.log(phoneRegex);
+          return phoneRegex.test(number);
+        });
+      }
+
+      const inputText = document.querySelector("#user-input");
+
+      const result = document.querySelector("#results-div");
+      const checkButton = document.querySelector("#check-btn");
+
+      checkButton.addEventListener("click", function () {
+        if (inputText.value == "") {
+          alert("Please provide a phone number");
+        } else if (isValid(inputText.value)) {
+          let newTelephone = document.createElement("p");
+          newTelephone.innerHTML = `Valid US number: ${inputText.value}`;
+          newTelephone.style.backgroundColor = "green";
+          result.appendChild(newTelephone);
+        } else {
+          let newTelephone = document.createElement("p");
+          newTelephone.innerHTML = `Invalid US number: ${inputText.value}`;
+          newTelephone.style.backgroundColor = "red";
+          result.appendChild(newTelephone);
+        }
+      });
+      const clearButton = document.querySelector("#clear-btn");
+      clearButton.addEventListener("click", function () {
+        result.innerHTML = "";
+      });
+    </script>
+  </body>
+</html>
