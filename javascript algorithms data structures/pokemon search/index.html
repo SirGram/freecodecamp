@@ -1,26 +1,78 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokemon Search</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <input type="text" id="search-input" required>
-    <button id="search-button">Find Pokemon</button>
-    <div id="pokemon-name"></div>
-    <div id="pokemon-id"></div>
-    <div id="pokemon-sprite"></div>
-    <div id="weight"></div>
-    <div id="height"></div>
-    <div id="types"></div>
-    <div id="hp"></div>
-    <div id="attack"></div>
-    <div id="defense"></div>
-    <div id="special-attack"></div>
-    <div id="special-defense"></div>
-    <div id="speed"></div>
+    <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap">
+
+
+  </head>
+  <body>
+    
+    <div class="container"><div id="title">
+       
+  <div class="pokeball"></div> <h1>Pokedex <br />Searcher</h1></div>
+      <input type="text" id="search-input" required placeholder="Pikachu"/>
+      <button id="search-button">Find Pokemon</button>
+     
+     
+   <div id="pokedex-result">
+      <div id="top">
+        <div>
+            <div id="main-info">
+                <button id="button-left"></button>
+                <p id="pokemon-name"></p>
+                <p id="pokemon-id"></p>
+                
+                <button id="button-right"></button>
+            </div>
+    
+            <div id="top-down">
+                <div id="left">
+                    <div id="weight-height">
+                    <p>Weight: <span id="weight"></span></p>
+                    <p>Height: <span id="height"></span></p></div>
+                    <p id="types"> </p>
+                </div>
+                
+                <img id="sprite" />
+            </div>
+        </div>
+    </div>    
+
+      <table id="down">
+       
+        <tr>
+          <td>HP:</td>
+          <td id="hp"></td>
+        </tr>
+        <tr>
+          <td>Attack:</td>
+          <td id="attack"></td>
+        </tr>
+        <tr>
+          <td>Defense:</td>
+          <td id="defense"></td>
+        </tr>
+        <tr>
+          <td>Special Attack:</td>
+          <td id="special-attack"></td>
+        </tr>
+        <tr>
+          <td>Special Defense:</td>
+          <td id="special-defense"></td>
+        </tr>
+        <tr>
+          <td>Speed:</td>
+          <td id="speed"></td>
+        </tr>
+      </table>
+    </div></div>
+    <div class="sidebar">  <p>&copy;Copyright 2023 <a href="https://github.com/SirGram" target="_blank">SirGram</a></p>
+    
+    </div>
     
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
