@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #b3a4c1;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      h1 {
+        margin: 0;
+      }
+      svg {
+        background-color: #fff;
+        box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      rect {
+        fill: rgb(0, 153, 23);
+      }
+
+      #tooltip {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 1;
+      }
+
+      #title {
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <div id="title"><h1>US GDP</h1></div>
+    <script>
+      const url =
+        "https://api.worldbank.org/v2/country/ES/indicator/NY.GDP.MKTP.CD?format=json";
+      const url2 =
+        "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json";
+      const w = 1400;
+      const h = 500;
+      const barWidth = 3;
+      const paddingX = 50;
+      const paddingY = 70;
+      let dataset = [];
+      const fetchData = async () => {
+        try {
+          const response = await fetch(url2);
+          const jsonData = await response.json();
+          return jsonData.data;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          return [];
+        }
+      };
+      const processData = (data) => {
+        dataset = data.map((val) => ({
+          date: new Date(val[0]),
+          value: val[1],
+        }));
+        console.log(dataset);
+      };
+      const createScales = () => {
+        const xScale = d3
+          .scaleTime()
+          .domain(d3.extent(dataset, (d) => d.date))
+          .range([paddingX, w - paddingX]);
+
+        const yScale = d3
+          .scaleLinear()
+          .domain([0, d3.max(dataset, (d) => Number(d.value))])
+          .range([h - paddingY, paddingY]);
+
+        return { xScale, yScale };
+      };
+      const createSvg = () => {
+        return d3
+          .select("body")
+          .append("svg")
+          .attr("width", w)
+          .attr("height", h);
+      };
+      const createTooltip = () => {
+        return d3
+          .select("body")
+          .append("div")
+          .attr("id", "tooltip")
+          .style("display", "none");
+      };
+      const renderRectangles = (svg, xScale, yScale, tooltip) => {
+        svg
+          .selectAll("rect")
+          .data(dataset)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("data-date", (d) => d3.timeFormat("%Y-%m-%d")(d.date))
+          .attr("data-gdp", (d) => d.value)
+          .attr("x", (d) => xScale(d.date))
+          .attr("y", (d) => yScale(Number(d.value)))
+          .attr("width", barWidth)
+          .attr("height", (d) => h - yScale(Number(d.value)) - paddingY)
+          .on("mouseover", function (d) {
+            console.log("hola");
+            tooltip
+
+              .style("display", "block")
+              .attr("data-date", d3.timeFormat("%Y-%m-%d")(d.date))
+              .html(
+                `GDP: $${d.value}<br>Date: ${d3.timeFormat("%Y-%m-%d")(d.date)}`
+              );
+          })
+          .on("mouseout", function () {
+            tooltip.style("display", "none");
+          });
+      };
+      const renderLabels = (svg) => {
+        svg
+          .append("text")
+          .attr("x", w / 2 + 120)
+          .attr("y", 30)
+          .text(
+            "More Information: http://www.bea.gov/national/pdf/nipaguid.pdf"
+          )
+          .attr("class", "info");
+        svg
+          .append("text")
+          .attr("x", 10)
+          .attr("y", 30)
+          .text("GDP")
+          .attr("font-weight", "bold")
+          .attr("class", "info");
+        svg
+          .append("text")
+          .attr("x", w / 2)
+          .attr("y", h - 20)
+          .text("Date")
+
+          .attr("font-weight", "bold")
+          .attr("class", "info");
+      };
+
+      const renderG = (svg, xScale, yScale) => {
+        const xAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat("%Y"));
+        svg
+          .append("g")
+          .attr("id", "x-axis")
+          .attr("transform", `translate(0, ${h - paddingY})`)
+          .call(xAxis)
+          .append("text");
+
+        const yAxis = d3.axisLeft(yScale);
+        svg
+          .append("g")
+          .attr("id", "y-axis")
+          .attr("transform", `translate(${paddingX}, 0)`)
+          .call(yAxis);
+      };
+      const init = async () => {
+        const data = await fetchData();
+        processData(data);
+        const { xScale, yScale } = createScales();
+        const svg = createSvg();
+        const tooltip = createTooltip();
+        renderLabels(svg);
+        renderRectangles(svg, xScale, yScale, tooltip);
+        renderG(svg, xScale, yScale);
+      };
+      init();
+    </script>
+  </body>
+</html>
