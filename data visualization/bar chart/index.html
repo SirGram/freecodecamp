@@ -119,7 +119,6 @@
           .attr("width", barWidth)
           .attr("height", (d) => h - yScale(Number(d.value)) - paddingY)
           .on("mouseover", function (d) {
-            console.log("hola");
             tooltip
 
               .style("display", "block")

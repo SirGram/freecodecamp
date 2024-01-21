@@ -1,0 +1,34 @@
+:root{
+    
+  filter: invert(100%);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(222, 222, 222);
+}
+h2{
+    margin-top: 2rem;
+}
+svg{
+    background-color: rgb(216, 216, 216);
+    margin-top: 2rem;
+    opacity: 0.8;
+}
+.dot {
+  stroke: black;
+}
+.no-doping {
+  fill: rgb(20, 132, 94);
+}
+.doping {
+  fill: rgb(198, 40, 22);
+}
+#tooltip{
+    background-color: gainsboro;
+    padding: 1rem;
+    border-left: 3px solid rgb(198, 40, 22);
+    display: none;
+}
